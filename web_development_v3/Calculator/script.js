@@ -68,22 +68,7 @@ operators.forEach((operatorButton) => {
         break;
       case "=":
         secondNumber = screen.innerText;
-        switch (operator) {
-          case "+":
-            result = add(parseInt(firstNumber), parseInt(secondNumber));
-            break;
-          case "−":
-            result = subtract(parseInt(firstNumber), parseInt(secondNumber));
-            break;
-          case "×":
-            result = multiply(parseInt(firstNumber), parseInt(secondNumber));
-            break;
-          case "÷":
-            result = divide(parseInt(firstNumber), parseInt(secondNumber));
-            break;
-        }
-        screen.innerText = result;
-        break;
+        calculate(firstNumber, operator, secondNumber);
     }
   });
 });
@@ -103,4 +88,22 @@ function multiply(a, b) {
 // division function
 function divide(a, b) {
   return a / b;
+}
+
+function calculate(firstNumber, operator, secondNumber) {
+  switch (operator) {
+    case "+":
+      result = add(parseInt(firstNumber), parseInt(secondNumber));
+      break;
+    case "−":
+      result = subtract(parseInt(firstNumber), parseInt(secondNumber));
+      break;
+    case "×":
+      result = multiply(parseInt(firstNumber), parseInt(secondNumber));
+      break;
+    case "÷":
+      result = divide(parseInt(firstNumber), parseInt(secondNumber));
+      break;
+  }
+  screen.innerText = result;
 }
