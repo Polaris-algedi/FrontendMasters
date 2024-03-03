@@ -26,6 +26,16 @@ Ready to test your vocabulary? Dive in and let the wordplay begin!
 
 game();
 
+const dropdownToggle = document.querySelector(".dropdown-toggle");
+const dropdownList = document.querySelector(".dropdown-list");
+
+dropdownToggle.addEventListener("click", () => {
+  dropdownList.classList.toggle("open");
+  const arrow = dropdownToggle.querySelector(".arrow");
+  arrow.classList.toggle("arrow-down");
+  arrow.classList.toggle("arrow-up");
+});
+
 /* 
   The following function is used to check if a key is a letter.
   It returns true if it is a letter and false if it is not.
