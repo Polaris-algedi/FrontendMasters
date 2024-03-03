@@ -6,6 +6,7 @@
   --hotmag: #ff17e4;
   --magenta: #e310cb;
   --aqua: #86fbfb;
+  --grey: #ccc;
   --white: #f7f8fa;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
@@ -35,23 +36,33 @@ h1 {
   color: var(--plum);
   font-family: var(--mono);
   text-align: center;
-  margin: 0;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0 1rem 0;
   padding: 0;
 }
 
 #intro p {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
 hr {
-  margin: 2rem auto 3rem auto;
+  margin: 2rem auto;
   width: 50%;
   border: 1px solid var(--black);
+}
+/* style the emoji */
+.wait-emoji {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.invisible {
+  visibility: hidden;
 }
 /* styles for the game */
 
@@ -60,31 +71,33 @@ hr {
   padding: 0;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.board {
   margin: 0;
   padding: 0;
 }
 
-.cell:first-child {
-  border-left: 2px solid var(--black);
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 350px;
+  border-right: 10px solid var(--grey);
+  border-left: 10px solid var(--grey);
 }
-.cell:last-child {
-  border-right: 2px solid var(--black);
+
+.row:first-child {
+  border-top: 10px solid var(--grey);
 }
-.row:first-child .cell {
-  border-top: 2px solid var(--black);
-}
-.row:last-child .cell {
-  border-bottom: 2px solid var(--black);
+.row:last-child {
+  border-bottom: 10px solid var(--grey);
 }
 
 .cell {
-  width: 60px;
-  height: 60px;
-  border: 1px solid var(--black);
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--grey);
   font-size: 3rem;
   font-weight: bold;
   font-family: var(--mono);
@@ -94,16 +107,37 @@ hr {
 
 /* Animations */
 
-@keyframes redSignal {
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes redSignal {
+  from {
     color: red;
+    border-color: red;
+  }
+  to {
+    color: black;
+    border-color: var(--grey);
   }
 }
 
 .redSignal {
   animation-name: redSignal;
-  animation-duration: 0.5s;
-  animation-iteration-count: 3;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in;
 }
 
 .red {
