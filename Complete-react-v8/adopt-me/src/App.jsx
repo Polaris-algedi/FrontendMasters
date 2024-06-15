@@ -23,7 +23,6 @@ const App = () => {
           <header>
             <Link to="/">Adopt Me!</Link>
           </header>
-          <h1>Adopt Me!</h1>
           <Routes>
             <Route path="/details/:id" element={<Details />} />
 
